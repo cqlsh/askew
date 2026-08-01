@@ -43,7 +43,7 @@ from .testing.replay import Replay
 from .testing.report import Report
 from .testing.runner import Simulation, SimulationTest, simulate
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "AskewError",
