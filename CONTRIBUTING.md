@@ -1,4 +1,4 @@
-﻿# Contributing to askew
+# Contributing to askew
 
 Thanks for taking the time. askew is small and early, which means changes land fast and the API is still soft â€” a good moment to shape it.
 

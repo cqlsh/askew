@@ -1,4 +1,4 @@
-﻿<h1 align="center">askew</h1>
+<h1 align="center">askew</h1>
 
 <p align="center">
   <strong>Deterministic Simulation Testing for asyncio.</strong><br>

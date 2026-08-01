@@ -1,4 +1,4 @@
-﻿"""
+"""
 askew: deterministic simulation testing for asyncio.
 
 Replaces the event loop with one whose clock is virtual and whose callback order
