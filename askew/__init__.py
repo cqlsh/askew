@@ -1,4 +1,4 @@
-"""
+﻿"""
 askew: deterministic simulation testing for asyncio.
 
 Replaces the event loop with one whose clock is virtual and whose callback order
@@ -43,7 +43,7 @@ from .testing.replay import Replay
 from .testing.report import Report
 from .testing.runner import Simulation, SimulationTest, simulate
 
-__version__ = "0.1.0.dev0"
+__version__ = "0.1.0"
 
 __all__ = [
     "AskewError",

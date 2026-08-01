@@ -1,20 +1,20 @@
-<h1 align="center">askew</h1>
+﻿<h1 align="center">askew</h1>
 
 <p align="center">
   <strong>Deterministic Simulation Testing for asyncio.</strong><br>
-  Your concurrency bugs, on demand — and never flaky again.
+  Your concurrency bugs, on demand â€” and never flaky again.
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/askew/"><img alt="PyPI" src="https://img.shields.io/pypi/v/askew?color=1f6feb"></a>
   <a href="https://pypi.org/project/askew/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/askew"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-blue"></a>
-  <a href="https://github.com/YOURNAME/askew/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main"></a>
+  <a href="https://github.com/cqlsh/askew/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main"></a>
 </p>
 
 ---
 
-askew swaps out the asyncio event loop for one where **time is virtual** and **callback order is chosen by a seeded PRNG**. Your code runs unchanged — same `async def`, same `await`, same `TaskGroup`. What changes is that the scheduler stops being an accident of your machine and becomes an input you control.
+askew swaps out the asyncio event loop for one where **time is virtual** and **callback order is chosen by a seeded PRNG**. Your code runs unchanged â€” same `async def`, same `await`, same `TaskGroup`. What changes is that the scheduler stops being an accident of your machine and becomes an input you control.
 
 One integer describes an entire run. Change it and you get a different interleaving. Keep it and you get the same bug, on every machine, forever.
 
@@ -24,7 +24,7 @@ Concurrency bugs are almost never bad logic. They are a rare ordering that your 
 
 - **Reproducible.** A failure is a seed. `seed=8149203` is the whole bug report.
 - **Fast.** Time is simulated. `await asyncio.sleep(30)` returns immediately, so a scenario spanning ten simulated minutes runs in microseconds. Thousands of interleavings per second.
-- **Hostile.** Partitions, dropped and reordered messages, latency, clock skew and node crashes are first-class — and driven by the same seed as the scheduler.
+- **Hostile.** Partitions, dropped and reordered messages, latency, clock skew and node crashes are first-class â€” and driven by the same seed as the scheduler.
 
 ## Install
 
@@ -62,7 +62,7 @@ async def test_leader_election(world):
 
 Ten thousand runs. Ten thousand different schedules, latencies and message orders. Each one finishes in well under a millisecond of real time, because none of the thirty simulated seconds are actually spent.
 
-Run it with plain `pytest` — the decorator returns an ordinary sync test function, so no asyncio plugin is involved.
+Run it with plain `pytest` â€” the decorator returns an ordinary sync test function, so no asyncio plugin is involved.
 
 ## What happens under the hood
 
@@ -115,10 +115,10 @@ Everything a test can do to the simulation hangs off the `world` handle it recei
 | `world.partition({0, 1}, {2, 3, 4})` | async context manager; heals on exit |
 | `world.net.isolate(node)` | cut a single node off |
 | `world.faults.crash(node)` | kill a node's task |
-| `world.random` | the run's PRNG — use it so your test data is part of the seed too |
+| `world.random` | the run's PRNG â€” use it so your test data is part of the seed too |
 | `world.log` | the event trace shown above |
 
-A spawned target is called as `fn(node, *args)`. The node handle doubles as its state: assign `node.leader` inside the coroutine, read `n.leader` from the test. Classes work too — `world.spawn(Replica, 3)` instantiates it and proxies attribute access through.
+A spawned target is called as `fn(node, *args)`. The node handle doubles as its state: assign `node.leader` inside the coroutine, read `n.leader` from the test. Classes work too â€” `world.spawn(Replica, 3)` instantiates it and proxies attribute access through.
 
 ## Rules of determinism
 
@@ -132,7 +132,7 @@ And two things askew cannot catch for you: the global `random` module (use `worl
 
 ## Status
 
-Early. The core — loop, clock, scheduler, network, faults, runner — is in place and the API above is what ships, but it is not frozen yet. Pin an exact version if you depend on it, and expect the occasional rename before 1.0.
+Early. The core â€” loop, clock, scheduler, network, faults, runner â€” is in place and the API above is what ships, but it is not frozen yet. Pin an exact version if you depend on it, and expect the occasional rename before 1.0.
 
 Issues and PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 

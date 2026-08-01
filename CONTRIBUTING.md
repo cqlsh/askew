@@ -1,6 +1,6 @@
-# Contributing to askew
+﻿# Contributing to askew
 
-Thanks for taking the time. askew is small and early, which means changes land fast and the API is still soft — a good moment to shape it.
+Thanks for taking the time. askew is small and early, which means changes land fast and the API is still soft â€” a good moment to shape it.
 
 ## The golden rule
 
@@ -11,7 +11,7 @@ askew.errors.SimulationFailure: ...
   (seed=8149203, iteration=417, t=61.482913s, steps=20194)
 ```
 
-Open the issue with that seed, the askew version, your Python version, and the smallest test function that reproduces it. If a seed reproduces on your machine but not on ours, that is itself the bug — determinism is the product, so those reports get priority over everything else.
+Open the issue with that seed, the askew version, your Python version, and the smallest test function that reproduces it. If a seed reproduces on your machine but not on ours, that is itself the bug â€” determinism is the product, so those reports get priority over everything else.
 
 ## Setup
 
@@ -37,7 +37,7 @@ askew's own tests are mostly meta-tests: they assert that a given seed produces 
 
 - new fault kinds (clock skew, partial writes, slow nodes, byzantine message corruption)
 - new scheduling strategies beyond the current random permutation
-- anything that makes a failure easier to read — shrinking, better traces, nicer diffs
+- anything that makes a failure easier to read â€” shrinking, better traces, nicer diffs
 - documentation and examples, especially real protocols
 
 **No:**
@@ -50,7 +50,7 @@ If you are unsure whether something fits, open an issue before writing the code.
 
 ## Determinism is a hard invariant
 
-Every source of variation in a run must trace back to the seed. When you add code that makes a choice — a delay, an ordering, a probability, a pick from a set — draw it from `world.rng`, never from the global `random` module and never from anything derived from real time or object identity.
+Every source of variation in a run must trace back to the seed. When you add code that makes a choice â€” a delay, an ordering, a probability, a pick from a set â€” draw it from `world.rng`, never from the global `random` module and never from anything derived from real time or object identity.
 
 Two traps that look innocent and are not:
 
@@ -79,7 +79,7 @@ Write a body that explains what changed and why. The subject line says which lev
 2. Keep one logical change per PR. Two unrelated fixes are two PRs.
 3. Tests pass, and new behaviour comes with a test.
 4. Update the README if you changed something documented there.
-5. Describe what you changed and why in the PR body — a link to an issue is not a description.
+5. Describe what you changed and why in the PR body â€” a link to an issue is not a description.
 
 Reviews are direct and about the code. Nobody here is fighting you.
 
