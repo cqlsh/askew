@@ -1,15 +1,15 @@
 <p align="center">
   <a href="https://pypi.org/project/askew-dst/">
-    <img alt="PyPI" src="https://img.shields.io/pypi/v/askew-dst?style=for-the-badge&labelColor=0d1117&color=2f81f7&logo=pypi&logoColor=white">
+    <img alt="PyPI" src="https://img.shields.io/pypi/v/askew-dst?style=for-the-badge&labelColor=161b22&color=21262d&logo=pypi&logoColor=e6edf3">
   </a>
   <a href="https://pypi.org/project/askew-dst/">
-    <img alt="Python" src="https://img.shields.io/pypi/pyversions/askew-dst?style=for-the-badge&labelColor=0d1117&color=2f81f7&logo=python&logoColor=white">
+    <img alt="Python" src="https://img.shields.io/pypi/pyversions/askew-dst?style=for-the-badge&labelColor=161b22&color=21262d&logo=python&logoColor=e6edf3">
   </a>
   <a href="https://github.com/cqlsh/askew/actions/workflows/ci.yml">
-    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main&style=for-the-badge&labelColor=0d1117&color=2f81f7&logo=githubactions&logoColor=white&label=ci">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main&style=for-the-badge&labelColor=161b22&color=21262d&logo=githubactions&logoColor=e6edf3&label=ci">
   </a>
   <a href="LICENSE">
-    <img alt="License" src="https://img.shields.io/badge/apache_2.0-2f81f7?style=for-the-badge&labelColor=0d1117&label=license">
+    <img alt="License" src="https://img.shields.io/badge/apache_2.0-21262d?style=for-the-badge&labelColor=161b22&label=license">
   </a>
 </p>
 
