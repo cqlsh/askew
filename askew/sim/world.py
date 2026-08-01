@@ -26,7 +26,7 @@ it. The runner unpacks its configuration here.
 
 from __future__ import annotations
 
-from collections.abc import Callable, Coroutine
+from collections.abc import Callable, Coroutine, Iterable
 from typing import TYPE_CHECKING, Any
 
 from ..core.clock import Clock
@@ -187,7 +187,7 @@ class World:
         """
         self.faults.crash(node)
 
-    def partition(self, *groups: set[Node | int] | frozenset[Node | int]) -> Partition:
+    def partition(self, *groups: Iterable[Node | int]) -> Partition:
         """
         Split the network, as a context manager.
 

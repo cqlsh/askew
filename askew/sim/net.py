@@ -23,6 +23,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any
 
 from ..errors import Unreachable
+from collections.abc import Iterable
 
 if TYPE_CHECKING:
     from ..core.log import EventLog
@@ -273,7 +274,7 @@ class Network:
             if node.id != source:
                 self.send(source, node.id, payload)
 
-    def partition(self, *groups: set[Node | int] | frozenset[Node | int]) -> Partition:
+    def partition(self, *groups: Iterable[Node | int]) -> Partition:
         """
         Split the network so that nodes in different groups cannot reach each other.
 

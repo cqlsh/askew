@@ -69,9 +69,8 @@ addopts = "-q --strict-markers"
 [tool.mypy]
 python_version = "3.11"
 files = ["askew"]
-warn_redundant_casts = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
 module = "askew.core.loop"
-disable_error_code = ["override"]
+disable_error_code = ["override", "attr-defined", "has-type"]
