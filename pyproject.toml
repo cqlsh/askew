@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "askew"
+description = "Deterministic simulation testing for asyncio"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "cqlsh", email = "cqlsh@outlook.de" }
+]
+keywords = [
+    "asyncio",
+    "testing",
+    "simulation",
+    "deterministic",
+    "concurrency",
+    "distributed-systems",
+    "fault-injection"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed"
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9",
+    "mypy>=1.14"
+]
+
+[project.urls]
+Homepage = "https://github.com/cqlsh/askew"
+Source = "https://github.com/cqlsh/askew"
+Issues = "https://github.com/cqlsh/askew/issues"
+
+[tool.hatch.version]
+path = "askew/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["askew"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "askew",
+    "tests",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["askew"]
