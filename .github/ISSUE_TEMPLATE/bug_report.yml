@@ -1,0 +1,88 @@
+name: Bug report
+description: Something in askew behaves differently than documented
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time.
+
+        The seed field below is required and is not a formality. askew exists so
+        that every failure reduces to one integer, and a report carrying that
+        integer can be reproduced in seconds instead of guessed at for a week.
+
+        If a seed reproduces for you but not for us, say so plainly. That is not
+        a lesser bug report, it is the most serious kind this project can
+        receive, and it goes to the front of the queue.
+
+  - type: input
+    id: seed
+    attributes:
+      label: Seed
+      description: The number printed by the failure, used exactly as printed.
+      placeholder: "10730304988861655876"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: askew version
+      description: Output of `python -c "import askew; print(askew.__version__)"`
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and operating system
+      placeholder: "3.13.5 on Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: The smallest test that reproduces it
+      description: >
+        Trim it until removing anything else makes the failure go away. Include
+        the decorator, since its arguments are part of the run.
+      render: python
+      placeholder: |
+        @askew.simulate(seed=1337, iterations=10_000)
+        async def test_it(world):
+            ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What you expected, and what happened instead
+      description: Two sentences are enough. Paste the assertion or the exception.
+    validations:
+      required: true
+
+  - type: textarea
+    id: trace
+    attributes:
+      label: The event trace
+      description: >
+        The `recent events` block from the failure, if there was one. Optional,
+        but it usually contains the answer.
+      render: text
+
+  - type: checkboxes
+    id: narrowing
+    attributes:
+      label: Before submitting
+      description: >
+        None of these are required. Each one you can tick removes a possibility
+        we would otherwise have to rule out ourselves.
+      options:
+        - label: The seed reproduces the failure every time I run it
+        - label: I reran it under `FifoScheduler` and the failure still happens
+        - label: My test draws its randomness from `world.random`, not the `random` module
+        - label: My test reads time from `world.now`, not from `time.monotonic` or `datetime`
+        - label: No part of the code under test uses threads, real sockets or the filesystem
