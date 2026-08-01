@@ -21,8 +21,6 @@ One integer describes an entire run. Change it and you get a different interleav
 
 ## Why
 
-Concurrency bugs are almost never bad logic. They are a rare ordering that your laptop happens not to produce, your CI happens to produce once a month, and production produces on a Friday.
-
 - **Reproducible.** A failure is a seed. `seed=8149203` is the whole bug report.
 - **Fast.** Time is simulated. `await asyncio.sleep(30)` returns immediately, so a scenario spanning ten simulated minutes runs in microseconds. Thousands of interleavings per second.
 - **Hostile.** Partitions, dropped and reordered messages, latency, clock skew and node crashes are first-class â€” and driven by the same seed as the scheduler.
