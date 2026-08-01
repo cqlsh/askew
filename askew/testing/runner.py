@@ -147,7 +147,7 @@ class SimulationTest:
         config = self.config.with_environment()
         pinned = environ.get(SimulationConfig.SEED_VARIABLE)
         if pinned:
-            self.check(config, SimulationConfig.parse(pinned, SimulationConfig.SEED_VARIABLE))
+            self.check(config, SimulationConfig.parse(pinned, SimulationConfig.SEED_VARIABLE), 0)
             return
         for iteration in range(config.iterations):
             self.check(config, config.seed_for(iteration), iteration)
@@ -190,14 +190,15 @@ class SimulationTest:
         """
         Build the message shown at the top of a failure.
 
-        The event tail is folded into the message rather than left on the
-        exception, because a test runner prints the message and little else, and
-        the trace is the part that explains what happened.
+        The event tail and the reproduction hint are folded into the message
+        rather than left on the exception, because a test runner prints the
+        message and little else.
         """
         error = report.error
         summary = "%s: %s" % (type(error).__name__, error) if error is not None else "failed"
         if report.events:
             summary += "\n  recent events\n" + "\n".join("    " + line for line in report.events)
+        summary += "\n  reproduce with ASKEW_SEED=%d" % report.seed
         return summary
 
     def __repr__(self) -> str:
@@ -240,7 +241,7 @@ class simulate:
         run_simulation.__qualname__ = getattr(scenario, "__qualname__", "run_simulation")
         run_simulation.__doc__ = scenario.__doc__
         run_simulation.__module__ = scenario.__module__
-        run_simulation.askew = test
+        run_simulation.askew = test  # type: ignore[attr-defined]
         return run_simulation
 
     def __repr__(self) -> str:

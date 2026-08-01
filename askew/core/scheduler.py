@@ -1,7 +1,7 @@
 """
 Decides the order in which ready callbacks run within a tick.
 
-This is the lever that makes askew explore rather than merely replay.  Real
+This is the lever that makes askew explore rather than merely replay. Real
 asyncio drains its ready queue first in, first out, which under virtual time
 would produce exactly one interleaving per scenario -- deterministic, but blind
 to every ordering bug that is not also a timing bug. A scheduler permutes that
@@ -54,7 +54,7 @@ class Scheduler:
         Draw every decision from *rng* and from nothing else, or the run stops
         being reproducible from its seed.
         """
-        raise NotImplemented
+        raise NotImplementedError
 
     def __repr__(self) -> str:
         return "%s()" % type(self).__name__
