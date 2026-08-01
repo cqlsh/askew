@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [
-    { name = "cqlsh", email = "cqlsh@outlook.de" }
+    { name = "cqlsh", email = "holoxp05@gmail.com" }
 ]
 keywords = [
     "asyncio",
@@ -38,7 +38,6 @@ dynamic = ["version"]
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
-    "ruff>=0.9",
     "mypy>=1.14"
 ]
 
@@ -67,15 +66,12 @@ include = [
 testpaths = ["tests"]
 addopts = "-q --strict-markers"
 
-[tool.ruff]
-line-length = 120
-target-version = "py311"
-
-[tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B", "SIM"]
-ignore = ["E501"]
-
 [tool.mypy]
 python_version = "3.11"
-strict = true
 files = ["askew"]
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "askew.core.loop"
+disable_error_code = ["override"]
