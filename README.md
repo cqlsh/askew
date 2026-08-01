@@ -1,15 +1,16 @@
-<h1 align="center">askew</h1>
-
 <p align="center">
-  <strong>Deterministic Simulation Testing for asyncio.</strong><br>
-  Your concurrency bugs, on demand â€” and never flaky again.
-</p>
-
-<p align="center">
-  <a href="https://pypi.org/project/askew/"><img alt="PyPI" src="https://img.shields.io/pypi/v/askew?color=1f6feb"></a>
-  <a href="https://pypi.org/project/askew/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/askew"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-blue"></a>
-  <a href="https://github.com/cqlsh/askew/actions"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main"></a>
+  <a href="https://pypi.org/project/askew-sim/">
+    <img alt="PyPI" src="https://img.shields.io/pypi/v/askew-sim?style=flat-square&logo=pypi&logoColor=white&label=pypi&color=4c1">
+  </a>
+  <a href="https://pypi.org/project/askew-sim/">
+    <img alt="Python" src="https://img.shields.io/pypi/pyversions/askew-sim?style=flat-square&logo=python&logoColor=white&color=4c1">
+  </a>
+  <a href="https://github.com/cqlsh/askew/actions/workflows/ci.yml">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/cqlsh/askew/ci.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=ci">
+  </a>
+  <a href="LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-4c1?style=flat-square">
+  </a>
 </p>
 
 ---
@@ -29,7 +30,7 @@ Concurrency bugs are almost never bad logic. They are a rare ordering that your 
 ## Install
 
 ```bash
-pip install askew
+pip install askew-dst
 ```
 
 Requires Python 3.11+. No dependencies.
